@@ -2,7 +2,6 @@ export type Language = 'fr' | 'en' | 'pt' | 'de';
 
 export const translations: Record<Language, Record<string, string>> = {
   fr: {
-    // Nav
     'nav.home': 'Accueil',
     'nav.simulator': 'Simulateur',
     'nav.about': 'À propos',
@@ -12,10 +11,9 @@ export const translations: Record<Language, Record<string, string>> = {
     'nav.dashboard': 'Mon espace',
     'nav.logout': 'Déconnexion',
 
-    // Hero
     'hero.title1': 'Votre crédit.',
     'hero.title2': 'Réinventé.',
-    'hero.subtitle': 'Nexus Finance redéfinit l\'expérience d\'emprunt. Simulation instantanée, décision en minutes, fonds disponibles immédiatement.',
+    'hero.subtitle': 'PrimeFinance redéfinit l\'expérience d\'emprunt. Simulation instantanée, décision en minutes, fonds disponibles immédiatement.',
     'hero.cta': 'Simuler maintenant',
     'hero.cta2': 'Découvrir nos offres',
     'hero.stat1': 'Prêts accordés',
@@ -24,13 +22,11 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.stat4': 'Décision en',
     'hero.stat4val': '4 min',
 
-    // Trust
     'trust.ssl': 'Chiffrement SSL',
     'trust.acpr': 'Agréé ACPR',
     'trust.rgpd': 'Conforme RGPD',
     'trust.encrypted': 'Données chiffrées',
 
-    // How it works
     'how.title': 'Comment ça marche',
     'how.subtitle': 'Un processus simplifié en 4 étapes',
     'how.step1.title': 'Simulez',
@@ -42,7 +38,6 @@ export const translations: Record<Language, Record<string, string>> = {
     'how.step4.title': 'Recevez',
     'how.step4.desc': 'Les fonds sont virés instantanément sur votre compte bancaire.',
 
-    // Simulator
     'sim.title': 'Simulateur de prêt',
     'sim.subtitle': 'Calculez votre mensualité en temps réel',
     'sim.amount': 'Montant du prêt',
@@ -64,11 +59,9 @@ export const translations: Record<Language, Record<string, string>> = {
     'sim.interest': 'Intérêts',
     'sim.remaining': 'Capital restant',
 
-    // Testimonials
     'test.title': 'Ils nous font confiance',
     'test.subtitle': 'Plus de 12 000 clients satisfaits',
 
-    // FAQ
     'faq.title': 'Questions fréquentes',
     'faq.q1': 'Quels sont les critères d\'éligibilité ?',
     'faq.a1': 'Vous devez être résident français, majeur, avec des revenus réguliers. Notre algorithme analyse votre profil global pour vous proposer la meilleure offre.',
@@ -81,16 +74,14 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.q5': 'Mes données sont-elles sécurisées ?',
     'faq.a5': 'Toutes vos données sont chiffrées AES-256 et stockées dans un coffre-fort numérique certifié. Nous sommes conformes RGPD et agréés ACPR.',
 
-    // Footer
     'footer.description': 'Plateforme de crédit digital premium. Simulation instantanée, décision rapide, fonds immédiats.',
     'footer.legal': 'Mentions légales',
     'footer.privacy': 'Politique de confidentialité',
     'footer.terms': 'Conditions générales',
     'footer.contact': 'Contact',
-    'footer.rights': '© 2026 Nexus Finance. Tous droits réservés.',
-    'footer.acpr': 'Nexus Finance est un établissement agréé par l\'ACPR sous le numéro XXXXX.',
+    'footer.rights': '© 2026 PrimeFinance. Tous droits réservés.',
+    'footer.acpr': 'PrimeFinance est un établissement agréé par l\'ACPR sous le numéro XXXXX.',
 
-    // Dashboard
     'dash.welcome': 'Bonjour',
     'dash.balance': 'Solde restant dû',
     'dash.next': 'Prochaine échéance',
@@ -102,7 +93,6 @@ export const translations: Record<Language, Record<string, string>> = {
     'dash.submitted': 'Demande soumise avec succès',
     'dash.noloans': 'Aucun prêt en cours',
 
-    // Loan form
     'form.title': 'Demande de prêt',
     'form.step1': 'Identité',
     'form.step2': 'Situation',
@@ -173,7 +163,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     'hero.title1': 'Your credit.',
     'hero.title2': 'Reinvented.',
-    'hero.subtitle': 'Nexus Finance redefines the borrowing experience. Instant simulation, decision in minutes, funds available immediately.',
+    'hero.subtitle': 'PrimeFinance redefines the borrowing experience. Instant simulation, decision in minutes, funds available immediately.',
     'hero.cta': 'Simulate now',
     'hero.cta2': 'Discover our offers',
     'hero.stat1': 'Loans granted',
@@ -239,8 +229,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'footer.privacy': 'Privacy policy',
     'footer.terms': 'Terms & conditions',
     'footer.contact': 'Contact',
-    'footer.rights': '© 2026 Nexus Finance. All rights reserved.',
-    'footer.acpr': 'Nexus Finance is an institution approved by ACPR under number XXXXX.',
+    'footer.rights': '© 2026 PrimeFinance. All rights reserved.',
+    'footer.acpr': 'PrimeFinance is an institution approved by ACPR under number XXXXX.',
 
     'dash.welcome': 'Hello',
     'dash.balance': 'Outstanding balance',
@@ -323,7 +313,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     'hero.title1': 'Seu crédito.',
     'hero.title2': 'Reinventado.',
-    'hero.subtitle': 'Nexus Finance redefine a experiência de empréstimo. Simulação instantânea, decisão em minutos, fundos disponíveis imediatamente.',
+    'hero.subtitle': 'PrimeFinance redefine a experiência de empréstimo. Simulação instantânea, decisão em minutos, fundos disponíveis imediatamente.',
     'hero.cta': 'Simular agora',
     'hero.cta2': 'Descobrir ofertas',
     'hero.stat1': 'Empréstimos concedidos',
@@ -389,8 +379,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'footer.privacy': 'Política de privacidade',
     'footer.terms': 'Termos e condições',
     'footer.contact': 'Contato',
-    'footer.rights': '© 2026 Nexus Finance. Todos os direitos reservados.',
-    'footer.acpr': 'Nexus Finance é uma instituição aprovada pela ACPR sob o número XXXXX.',
+    'footer.rights': '© 2026 PrimeFinance. Todos os direitos reservados.',
+    'footer.acpr': 'PrimeFinance é uma instituição aprovada pela ACPR sob o número XXXXX.',
 
     'dash.welcome': 'Olá',
     'dash.balance': 'Saldo devedor',
@@ -473,7 +463,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     'hero.title1': 'Ihr Kredit.',
     'hero.title2': 'Neu erfunden.',
-    'hero.subtitle': 'Nexus Finance definiert das Krediterlebnis neu. Sofortige Simulation, Entscheidung in Minuten, sofort verfügbare Mittel.',
+    'hero.subtitle': 'PrimeFinance definiert das Krediterlebnis neu. Sofortige Simulation, Entscheidung in Minuten, sofort verfügbare Mittel.',
     'hero.cta': 'Jetzt simulieren',
     'hero.cta2': 'Angebote entdecken',
     'hero.stat1': 'Gewährte Kredite',
@@ -539,8 +529,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'footer.privacy': 'Datenschutzrichtlinie',
     'footer.terms': 'Allgemeine Geschäftsbedingungen',
     'footer.contact': 'Kontakt',
-    'footer.rights': '© 2026 Nexus Finance. Alle Rechte vorbehalten.',
-    'footer.acpr': 'Nexus Finance ist ein von der ACPR zugelassenes Institut unter der Nummer XXXXX.',
+    'footer.rights': '© 2026 PrimeFinance. Alle Rechte vorbehalten.',
+    'footer.acpr': 'PrimeFinance ist ein von der ACPR zugelassenes Institut unter der Nummer XXXXX.',
 
     'dash.welcome': 'Hallo',
     'dash.balance': 'Ausstehender Saldo',
