@@ -15,40 +15,40 @@ export default function HowItWorks() {
 
   return (
     <section id="comment" className="py-24 lg:py-32 bg-midnight relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+      <div className="container mx-auto px-6 lg:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-lavender mb-4">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-lavender mb-4 tracking-tight">
             {t('how.title')}
           </h2>
-          <p className="text-mist text-lg">{t('how.subtitle')}</p>
+          <p className="text-muted-foreground text-base lg:text-lg max-w-lg mx-auto">{t('how.subtitle')}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
           {steps.map((step, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
+              transition={{ delay: i * 0.1 }}
               className="relative group"
             >
-              <div className="glass-card rounded-2xl p-8 h-full hover:-translate-y-2 transition-all duration-300 hover:border-glow">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 group-hover:glow-indigo transition-all duration-300">
-                  <step.Icon className="w-7 h-7 text-primary" />
+              <div className="card-elevated rounded-xl p-8 h-full hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-primary/8 border border-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/12 transition-colors">
+                  <step.Icon className="w-5 h-5 text-primary" />
                 </div>
-                <div className="font-mono text-sm text-primary/60 mb-2">0{i + 1}</div>
-                <h3 className="font-display font-bold text-xl text-foreground mb-3">{step.title}</h3>
-                <p className="text-mist text-sm leading-relaxed">{step.desc}</p>
+                <div className="font-mono text-xs text-primary/50 mb-2 tracking-wider">0{i + 1}</div>
+                <h3 className="font-display font-bold text-lg text-foreground mb-3">{step.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
               </div>
               {i < 3 && (
-                <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-primary/20" />
+                <div className="hidden lg:block absolute top-1/2 -right-2.5 w-5 h-px bg-border" />
               )}
             </motion.div>
           ))}
