@@ -14,7 +14,7 @@ export default function HowItWorks() {
   }));
 
   return (
-    <section id="comment" className="py-24 lg:py-32 bg-midnight relative overflow-hidden">
+    <section id="comment" className="py-24 lg:py-32 bg-secondary relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
       <div className="container mx-auto px-6 lg:px-10">
         <motion.div
@@ -23,7 +23,7 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-lavender mb-4 tracking-tight">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-4 tracking-tight">
             {t('how.title')}
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg max-w-lg mx-auto">{t('how.subtitle')}</p>
@@ -40,7 +40,7 @@ export default function HowItWorks() {
               className="relative group"
             >
               <div className="card-elevated rounded-xl p-8 h-full hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-primary/8 border border-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/12 transition-colors">
+                <div className="w-12 h-12 rounded-lg bg-primary/8 border border-primary/15 flex items-center justify-center mb-6 group-hover:bg-primary/12 transition-colors">
                   <step.Icon className="w-5 h-5 text-primary" />
                 </div>
                 <div className="font-mono text-xs text-primary/50 mb-2 tracking-wider">0{i + 1}</div>

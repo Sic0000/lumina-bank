@@ -42,7 +42,7 @@ export default function LoanSimulator() {
   const purposeKeys = ['personal', 'auto', 'works', 'conso', 'pro'] as const;
 
   return (
-    <section id="simulateur" className="py-24 lg:py-32 bg-obsidian relative overflow-hidden">
+    <section id="simulateur" className="py-24 lg:py-32 bg-background relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-10 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -50,7 +50,7 @@ export default function LoanSimulator() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-lavender mb-4 tracking-tight">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-4 tracking-tight">
             {t('sim.title')}
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg">{t('sim.subtitle')}</p>
@@ -62,17 +62,14 @@ export default function LoanSimulator() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          {/* Security bar */}
           <div className="flex items-center gap-2 mb-4 text-xs text-muted-foreground">
-            <Lock className="w-3 h-3 text-accent" />
+            <Lock className="w-3 h-3 text-primary" />
             <span>AES-256 encrypted · RGPD</span>
           </div>
 
           <div className="card-elevated rounded-2xl p-8 sm:p-10 lg:p-12">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-              {/* Controls */}
               <div className="space-y-10">
-                {/* Amount */}
                 <div>
                   <div className="flex justify-between items-baseline mb-5">
                     <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{t('sim.amount')}</label>
@@ -86,7 +83,7 @@ export default function LoanSimulator() {
                     onChange={e => setAmount(Number(e.target.value))}
                     className="w-full"
                     style={{
-                      background: `linear-gradient(to right, hsl(217 91% 60%) ${((amount - 500) / 74500) * 100}%, hsl(220 15% 15%) ${((amount - 500) / 74500) * 100}%)`,
+                      background: `linear-gradient(to right, hsl(0 78% 52%) ${((amount - 500) / 74500) * 100}%, hsl(220 14% 91%) ${((amount - 500) / 74500) * 100}%)`,
                       height: '4px', borderRadius: '2px',
                     }}
                   />
@@ -95,7 +92,6 @@ export default function LoanSimulator() {
                   </div>
                 </div>
 
-                {/* Duration */}
                 <div>
                   <div className="flex justify-between items-baseline mb-5">
                     <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{t('sim.duration')}</label>
@@ -108,7 +104,7 @@ export default function LoanSimulator() {
                     onChange={e => setDuration(Number(e.target.value))}
                     className="w-full"
                     style={{
-                      background: `linear-gradient(to right, hsl(217 91% 60%) ${((duration - 6) / 78) * 100}%, hsl(220 15% 15%) ${((duration - 6) / 78) * 100}%)`,
+                      background: `linear-gradient(to right, hsl(0 78% 52%) ${((duration - 6) / 78) * 100}%, hsl(220 14% 91%) ${((duration - 6) / 78) * 100}%)`,
                       height: '4px', borderRadius: '2px',
                     }}
                   />
@@ -117,7 +113,6 @@ export default function LoanSimulator() {
                   </div>
                 </div>
 
-                {/* Purpose */}
                 <div>
                   <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-4 block">{t('sim.purpose')}</label>
                   <div className="flex flex-wrap gap-2">
@@ -127,8 +122,8 @@ export default function LoanSimulator() {
                         onClick={() => setPurpose(key)}
                         className={`px-4 py-2.5 rounded-lg text-xs font-medium transition-all duration-200 ${
                           purpose === key
-                            ? 'bg-primary text-primary-foreground shadow-[0_2px_12px_hsla(217,91%,60%,0.25)]'
-                            : 'bg-surface text-muted-foreground hover:text-foreground border border-border/30'
+                            ? 'bg-primary text-primary-foreground shadow-[0_2px_12px_hsla(0,78%,52%,0.2)]'
+                            : 'bg-secondary text-muted-foreground hover:text-foreground border border-border'
                         }`}
                       >
                         {t(`sim.purpose.${key}`)}
@@ -138,10 +133,8 @@ export default function LoanSimulator() {
                 </div>
               </div>
 
-              {/* Results */}
               <div className="flex flex-col justify-center">
                 <div className="space-y-6">
-                  {/* Monthly — THE dominant number */}
                   <div className="card-elevated rounded-xl p-8 text-center">
                     <div className="text-xs text-muted-foreground uppercase tracking-wider mb-3">{t('sim.monthly')}</div>
                     <div className="font-mono font-semibold text-[clamp(2rem,4vw,3.25rem)] text-foreground leading-none">
@@ -163,7 +156,7 @@ export default function LoanSimulator() {
 
                   <a
                     href="/dashboard"
-                    className="group w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 shadow-[0_4px_24px_hsla(217,91%,60%,0.25)]"
+                    className="group w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 shadow-[0_4px_24px_hsla(0,78%,52%,0.2)]"
                   >
                     {t('sim.apply')}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -172,8 +165,7 @@ export default function LoanSimulator() {
               </div>
             </div>
 
-            {/* Amortization */}
-            <div className="mt-10 pt-8 border-t border-border/20">
+            <div className="mt-10 pt-8 border-t border-border">
               <button
                 onClick={() => setShowAmortization(!showAmortization)}
                 className="flex items-center gap-2 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider"
@@ -185,10 +177,10 @@ export default function LoanSimulator() {
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
-                  className="mt-4 overflow-auto max-h-80 rounded-lg border border-border/20"
+                  className="mt-4 overflow-auto max-h-80 rounded-lg border border-border"
                 >
                   <table className="w-full text-sm">
-                    <thead className="bg-surface sticky top-0">
+                    <thead className="bg-secondary sticky top-0">
                       <tr className="text-muted-foreground text-[11px] uppercase tracking-wider">
                         <th className="py-3 px-4 text-left font-medium">{t('sim.month')}</th>
                         <th className="py-3 px-4 text-right font-medium">{t('sim.capital')}</th>
@@ -198,7 +190,7 @@ export default function LoanSimulator() {
                     </thead>
                     <tbody>
                       {schedule.map(row => (
-                        <tr key={row.month} className="border-t border-border/10 hover:bg-surface/50">
+                        <tr key={row.month} className="border-t border-border hover:bg-secondary/50">
                           <td className="py-2.5 px-4 font-mono text-muted-foreground text-xs">{row.month}</td>
                           <td className="py-2.5 px-4 text-right font-mono text-foreground text-xs">{formatCurrency(row.capital)}</td>
                           <td className="py-2.5 px-4 text-right font-mono text-muted-foreground text-xs">{formatCurrency(row.interest)}</td>

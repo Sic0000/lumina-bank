@@ -30,7 +30,7 @@ function ScoreGauge({ score }: { score: number }) {
   return (
     <div className="relative w-36 h-36 mx-auto">
       <svg className="w-full h-full -rotate-90" viewBox="0 0 128 128">
-        <circle cx="64" cy="64" r="60" fill="none" stroke="hsl(220 15% 15%)" strokeWidth="6" />
+        <circle cx="64" cy="64" r="60" fill="none" stroke="hsl(220 14% 91%)" strokeWidth="6" />
         <motion.circle
           cx="64" cy="64" r="60" fill="none" stroke={color} strokeWidth="6"
           strokeLinecap="round"
@@ -55,11 +55,10 @@ export default function Dashboard() {
   const [tab, setTab] = useState<Tab>('overview');
 
   return (
-    <div className="min-h-screen bg-obsidian">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-28 pb-20">
         <div className="container mx-auto px-6 lg:px-10">
-          {/* Welcome */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,7 +70,6 @@ export default function Dashboard() {
             <p className="text-sm text-muted-foreground mt-1">Espace client sécurisé</p>
           </motion.div>
 
-          {/* Tabs */}
           <div className="flex gap-2 mb-10 overflow-x-auto pb-2">
             {[
               { key: 'overview' as Tab, icon: Wallet, label: t('dash.balance').split(' ')[0] },
@@ -83,8 +81,8 @@ export default function Dashboard() {
                 onClick={() => setTab(item.key)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-lg text-xs font-medium whitespace-nowrap transition-all duration-200 ${
                   tab === item.key
-                    ? 'bg-primary text-primary-foreground shadow-[0_2px_12px_hsla(217,91%,60%,0.25)]'
-                    : 'bg-card text-muted-foreground hover:text-foreground border border-border/20'
+                    ? 'bg-primary text-primary-foreground shadow-[0_2px_12px_hsla(0,78%,52%,0.2)]'
+                    : 'bg-card text-muted-foreground hover:text-foreground border border-border'
                 }`}
               >
                 <item.icon className="w-4 h-4" />
@@ -116,28 +114,25 @@ function OverviewTab() {
       exit={{ opacity: 0, y: -16 }}
       className="grid lg:grid-cols-3 gap-6"
     >
-      {/* Balance — THE dominant element */}
       <div className="lg:col-span-2 card-elevated rounded-2xl p-10">
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 rounded-lg bg-primary/8 border border-primary/10 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-primary/8 border border-primary/15 flex items-center justify-center">
             <Wallet className="w-5 h-5 text-primary" />
           </div>
           <div>
             <div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">{t('dash.balance')}</div>
           </div>
         </div>
-        {/* Balance — 32px+ dominant number */}
         <div className="font-mono font-semibold text-[clamp(2rem,4vw,3.5rem)] text-foreground leading-none mb-10">
           {formatCurrency(mockData.balance)}
         </div>
         
-        {/* Progress */}
         <div className="space-y-3">
           <div className="flex justify-between text-[11px] text-muted-foreground uppercase tracking-wider">
             <span>Remboursé : 56%</span>
             <span>Capital initial : {formatCurrency(53200)}</span>
           </div>
-          <div className="w-full h-1.5 rounded-full bg-surface overflow-hidden">
+          <div className="w-full h-1.5 rounded-full bg-secondary overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: '56%' }}
@@ -147,8 +142,7 @@ function OverviewTab() {
           </div>
         </div>
 
-        {/* Next payment */}
-        <div className="mt-10 p-6 rounded-xl bg-surface/50 border border-border/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="mt-10 p-6 rounded-xl bg-secondary border border-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <Calendar className="w-5 h-5 text-primary" />
             <div>
@@ -162,7 +156,6 @@ function OverviewTab() {
         </div>
       </div>
 
-      {/* Score */}
       <div className="card-elevated rounded-2xl p-10 flex flex-col items-center justify-center">
         <div className="text-xs text-muted-foreground uppercase tracking-wider font-medium mb-8">{t('dash.score')}</div>
         <ScoreGauge score={mockData.score} />
@@ -187,7 +180,7 @@ function DocumentsTab() {
         {mockData.documents.map((doc, i) => (
           <div key={i} className="card-elevated rounded-xl p-6 flex items-center justify-between hover:-translate-y-0.5 transition-transform">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/8 border border-primary/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-primary/8 border border-primary/15 flex items-center justify-center">
                 <FileText className="w-5 h-5 text-primary" />
               </div>
               <div>
@@ -195,7 +188,7 @@ function DocumentsTab() {
                 <div className="text-xs text-muted-foreground mt-0.5">{doc.date} — {doc.type}</div>
               </div>
             </div>
-            <button className="w-9 h-9 rounded-lg bg-surface flex items-center justify-center hover:bg-primary/8 transition-colors">
+            <button className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary/8 transition-colors">
               <Download className="w-4 h-4 text-muted-foreground" />
             </button>
           </div>
@@ -247,13 +240,12 @@ function LoanFormTab() {
       exit={{ opacity: 0, y: -16 }}
       className="max-w-3xl mx-auto"
     >
-      {/* Stepper */}
       <div className="flex items-center gap-1 mb-8 overflow-x-auto pb-2">
         {steps.map((s, i) => (
           <div key={i} className="flex items-center gap-1">
             <div className={`flex items-center gap-2 px-3 py-2 rounded-md text-[11px] font-medium whitespace-nowrap transition-all ${
               i === step ? 'bg-primary/15 text-primary' :
-              i < step ? 'bg-accent/10 text-accent' : 'bg-surface text-muted-foreground'
+              i < step ? 'bg-accent/10 text-accent' : 'bg-secondary text-muted-foreground'
             }`}>
               <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${
                 i < step ? 'bg-accent text-primary-foreground' :
@@ -266,14 +258,13 @@ function LoanFormTab() {
         ))}
       </div>
 
-      {/* Security bar — visible near every form */}
       <div className="flex items-center gap-4 mb-6 text-[11px] text-muted-foreground">
         <div className="flex items-center gap-1.5">
-          <Lock className="w-3 h-3 text-accent" />
+          <Lock className="w-3 h-3 text-primary" />
           <span>AES-256 encrypted</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <Shield className="w-3 h-3 text-accent" />
+          <Shield className="w-3 h-3 text-primary" />
           <span>{t('form.secure')}</span>
         </div>
         <div className="flex items-center gap-1.5">
@@ -282,7 +273,6 @@ function LoanFormTab() {
         </div>
       </div>
 
-      {/* Form */}
       <div className="card-elevated rounded-2xl p-8 sm:p-10">
         <AnimatePresence mode="wait">
           <motion.div
@@ -301,19 +291,18 @@ function LoanFormTab() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation */}
-        <div className="flex justify-between mt-10 pt-6 border-t border-border/15">
+        <div className="flex justify-between mt-10 pt-6 border-t border-border">
           {step > 0 ? (
-            <button onClick={() => setStep(step - 1)} className="flex items-center gap-2 px-5 py-3 rounded-lg text-xs font-medium bg-surface text-muted-foreground hover:text-foreground transition-colors">
+            <button onClick={() => setStep(step - 1)} className="flex items-center gap-2 px-5 py-3 rounded-lg text-xs font-medium bg-secondary text-muted-foreground hover:text-foreground transition-colors">
               <ArrowLeft className="w-4 h-4" /> {t('form.prev')}
             </button>
           ) : <div />}
           {step < 5 ? (
-            <button onClick={() => setStep(step + 1)} className="flex items-center gap-2 px-6 py-3 rounded-lg text-xs font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-[0_2px_12px_hsla(217,91%,60%,0.25)]">
+            <button onClick={() => setStep(step + 1)} className="flex items-center gap-2 px-6 py-3 rounded-lg text-xs font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-[0_2px_12px_hsla(0,78%,52%,0.2)]">
               {t('form.next')} <ArrowRight className="w-4 h-4" />
             </button>
           ) : (
-            <button onClick={() => setSubmitted(true)} className="flex items-center gap-2 px-6 py-3 rounded-lg text-xs font-semibold bg-accent text-accent-foreground hover:bg-accent/90 transition-all shadow-[0_2px_12px_hsla(160,84%,39%,0.25)]">
+            <button onClick={() => setSubmitted(true)} className="flex items-center gap-2 px-6 py-3 rounded-lg text-xs font-semibold bg-accent text-accent-foreground hover:bg-accent/90 transition-all shadow-[0_2px_12px_hsla(160,84%,39%,0.2)]">
               {t('form.submit')} <CheckCircle2 className="w-4 h-4" />
             </button>
           )}
@@ -338,7 +327,7 @@ function InputField({ label, name, type = 'text', data, update, placeholder }: {
         value={data?.[name] || ''}
         onChange={e => update?.(name, e.target.value)}
         placeholder={placeholder}
-        className="w-full h-12 px-4 rounded-lg bg-surface border border-border/20 text-foreground placeholder:text-muted-foreground/30 focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none text-sm"
+        className="w-full h-12 px-4 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none text-sm"
       />
     </div>
   );
@@ -351,10 +340,10 @@ function SelectField({ label, name, options, data, update }: { label: string; na
       <select
         value={data?.[name] || ''}
         onChange={e => update?.(name, e.target.value)}
-        className="w-full h-12 px-4 rounded-lg bg-surface border border-border/20 text-foreground focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none text-sm appearance-none"
+        className="w-full h-12 px-4 rounded-lg bg-secondary border border-border text-foreground focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none text-sm appearance-none"
       >
-        <option value="" className="bg-card">—</option>
-        {options.map(o => <option key={o.value} value={o.value} className="bg-card">{o.label}</option>)}
+        <option value="">—</option>
+        {options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
       </select>
     </div>
   );
@@ -450,7 +439,7 @@ function StepProject({ t, data, update }: StepProps) {
           value={data?.description || ''}
           onChange={e => update?.('description', e.target.value)}
           rows={3}
-          className="w-full px-4 py-3 rounded-lg bg-surface border border-border/20 text-foreground placeholder:text-muted-foreground/30 focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none text-sm resize-none"
+          className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none text-sm resize-none"
         />
       </div>
       <div className="grid sm:grid-cols-2 gap-5">
@@ -476,7 +465,7 @@ function StepDocuments({ t }: StepProps) {
       {docs.map((doc, i) => (
         <div key={i}>
           <label className="block text-[11px] font-medium text-muted-foreground uppercase tracking-wider mb-2">{doc}</label>
-          <div className="border border-dashed border-border/30 rounded-lg p-8 text-center hover:border-primary/20 transition-colors cursor-pointer">
+          <div className="border border-dashed border-border rounded-lg p-8 text-center hover:border-primary/30 transition-colors cursor-pointer">
             <Upload className="w-5 h-5 text-muted-foreground mx-auto mb-2" />
             <p className="text-xs text-muted-foreground">{t('form.upload')}</p>
             <p className="text-[10px] text-muted-foreground/50 mt-1">{t('form.formats')}</p>
@@ -503,7 +492,7 @@ function StepValidation({ t, data }: StepProps) {
           [t('form.amount'), data?.loan_amount ? `${data.loan_amount} €` : ''],
           [t('form.duration'), data?.loan_duration ? `${data.loan_duration} mois` : ''],
         ].filter(([, v]) => v).map(([label, value], i) => (
-          <div key={i} className="flex justify-between py-3 border-b border-border/10">
+          <div key={i} className="flex justify-between py-3 border-b border-border">
             <span className="text-xs text-muted-foreground uppercase tracking-wider">{label}</span>
             <span className="text-sm font-medium text-foreground">{value}</span>
           </div>
@@ -514,7 +503,7 @@ function StepValidation({ t, data }: StepProps) {
           type="checkbox"
           checked={consent}
           onChange={e => setConsent(e.target.checked)}
-          className="mt-0.5 w-4 h-4 rounded border-border/30 bg-surface text-primary focus:ring-primary/20"
+          className="mt-0.5 w-4 h-4 rounded border-border bg-secondary text-primary focus:ring-primary/20"
         />
         <span className="text-xs text-muted-foreground leading-relaxed">{t('form.consent')}</span>
       </label>

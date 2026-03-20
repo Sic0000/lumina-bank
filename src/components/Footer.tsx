@@ -4,12 +4,12 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-midnight border-t border-border/20 py-16">
+    <footer className="bg-secondary border-t border-border py-16">
       <div className="container mx-auto px-6 lg:px-10">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/15 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <span className="font-display font-extrabold text-xs text-primary">PF</span>
               </div>
               <span className="font-display font-bold text-foreground">Prime<span className="text-primary">Finance</span></span>
@@ -28,7 +28,7 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground">+33 1 XX XX XX XX</p>
           </div>
         </div>
-        <div className="border-t border-border/20 pt-8">
+        <div className="border-t border-border pt-8">
           <p className="text-xs text-muted-foreground text-center">{t('footer.rights')}</p>
           <p className="text-xs text-muted-foreground/50 text-center mt-2">{t('footer.acpr')}</p>
         </div>
