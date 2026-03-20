@@ -13,7 +13,7 @@ export default function FAQSection() {
   }));
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-obsidian relative">
+    <section id="faq" className="py-24 lg:py-32 bg-background relative">
       <div className="container mx-auto px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -21,7 +21,7 @@ export default function FAQSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-lavender mb-4 tracking-tight">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-4 tracking-tight">
             {t('faq.title')}
           </h2>
         </motion.div>
@@ -41,7 +41,7 @@ export default function FAQSection() {
                 className="w-full flex items-center justify-between p-6 text-left"
               >
                 <span className="font-medium text-foreground text-sm pr-4">{faq.question}</span>
-                <div className={`shrink-0 w-7 h-7 rounded-md flex items-center justify-center transition-colors ${openIndex === i ? 'bg-primary/15 text-primary' : 'bg-surface text-muted-foreground'}`}>
+                <div className={`shrink-0 w-7 h-7 rounded-md flex items-center justify-center transition-colors ${openIndex === i ? 'bg-primary/15 text-primary' : 'bg-secondary text-muted-foreground'}`}>
                   {openIndex === i ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                 </div>
               </button>

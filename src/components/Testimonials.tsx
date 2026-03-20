@@ -13,7 +13,7 @@ export default function Testimonials() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 lg:py-32 bg-midnight relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-secondary relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
       <div className="container mx-auto px-6 lg:px-10">
         <motion.div
@@ -22,7 +22,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-lavender mb-4 tracking-tight">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-4 tracking-tight">
             {t('test.title')}
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg">{t('test.subtitle')}</p>

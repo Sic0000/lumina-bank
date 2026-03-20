@@ -27,13 +27,12 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass py-3' : 'bg-transparent py-5'
+        scrolled ? 'glass py-3 shadow-sm' : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-6 lg:px-10 flex items-center justify-between">
-        {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/15 flex items-center justify-center">
+          <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
             <span className="font-display font-extrabold text-sm text-primary">PF</span>
           </div>
           <span className="font-display font-bold text-base tracking-tight text-foreground">
@@ -41,7 +40,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-10">
           {navLinks.map(link => (
             <a
@@ -54,7 +52,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right side */}
         <div className="hidden lg:flex items-center gap-4">
           <LanguageSwitcher />
           {isLoggedIn ? (
@@ -74,7 +71,7 @@ export default function Navbar() {
               </Link>
               <Link
                 to="/dashboard"
-                className="px-5 py-2.5 rounded-lg text-[13px] font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 shadow-[0_2px_12px_hsla(217,91%,60%,0.25)]"
+                className="px-5 py-2.5 rounded-lg text-[13px] font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 shadow-[0_2px_12px_hsla(0,78%,52%,0.2)]"
               >
                 {t('nav.signup')}
               </Link>
@@ -82,7 +79,6 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Mobile toggle */}
         <div className="flex lg:hidden items-center gap-3">
           <LanguageSwitcher />
           <button onClick={() => setMobileOpen(!mobileOpen)} className="p-2 text-foreground">
@@ -91,14 +87,13 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass border-t border-border/20 overflow-hidden"
+            className="lg:hidden glass border-t border-border overflow-hidden"
           >
             <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
               {navLinks.map(link => (
@@ -111,7 +106,7 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <hr className="border-border/20" />
+              <hr className="border-border" />
               <Link
                 to="/dashboard"
                 onClick={() => setMobileOpen(false)}
